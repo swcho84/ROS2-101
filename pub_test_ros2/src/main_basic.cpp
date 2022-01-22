@@ -37,5 +37,8 @@ int main(int argc, char** argv)
   // releasing the class object
   pubBasicRos2.~PubBasicTestRos2();  
 
+  // closing the rclcpp
+  rclcpp::shutdown();  
+
   return 0;
 }  // end main()

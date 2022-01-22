@@ -24,11 +24,15 @@ include_directories(
 add_executable(pub_test_basic_ros2_node lib/pub_basic_test_ros2_lib.cpp include/pub_basic_test_ros2_lib.h src/main_basic.cpp)
 ament_target_dependencies(pub_test_basic_ros2_node rclcpp std_msgs)
 
+add_executable(pub_test_basic_ros2_stdstyle_node lib/pub_basic_test_ros2_stdstyle_lib.cpp include/pub_basic_test_ros2_stdstyle_lib.h src/main_basic_stdstyle.cpp)
+ament_target_dependencies(pub_test_basic_ros2_stdstyle_node rclcpp std_msgs)
+
 add_executable(pub_test_advanced_multiarray_ros2_node lib/pub_advanced_test_ros2_lib.cpp include/pub_advanced_test_ros2_lib.h src/main_advanced.cpp)
 ament_target_dependencies(pub_test_advanced_multiarray_ros2_node rclcpp std_msgs)
 
 install(TARGETS
   pub_test_basic_ros2_node
+  pub_test_basic_ros2_stdstyle_node
   pub_test_advanced_multiarray_ros2_node
   DESTINATION lib/${PROJECT_NAME})
 
