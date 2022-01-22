@@ -1,4 +1,4 @@
-#include "sub_synced_test_ros2_lib.h"
+#include "pub_advanced_test_ros2_stdstyle_lib.h"
 
 using namespace std;
 using namespace rclcpp;
@@ -14,11 +14,13 @@ int main(int argc, char** argv)
   init(argc, argv);
 
   // setting the node (nodeHandler)
-  string strNodeNm = "sub_test_synced_ros2_node";
-  auto node = Node::make_shared(strNodeNm);
-
-  // using callback loop and sleep feature
-  spin(std::make_shared<SubSyncedTestRos2>(strNodeNm));
+  rclcpp::executors::SingleThreadedExecutor::SharedPtr exec 
+    = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
+  string strNodeNm = "pub_test_advanced_ros2_stdstyle_node";
+  std::shared_ptr<PubAdvTestStdStyleRos2> pubNode 
+    = std::make_shared<PubAdvTestStdStyleRos2>(strNodeNm);
+  exec->add_node(pubNode);
+  exec->spin();
 
   // closing the rclcpp
   rclcpp::shutdown();

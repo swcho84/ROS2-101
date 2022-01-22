@@ -18,7 +18,7 @@ int main(int argc, char** argv)
   auto node = Node::make_shared(strNodeNm);
 
   // setting the class object
-  PubAdvancedTestRos2 pubAdvMultiArrRos2(strNodeNm);
+  PubAdvTestRos2 pubAdvMultiArrRos2(strNodeNm);
 
   // Tell ROS2 how fast to run this node.
   WallRate loopRate(30);
@@ -35,7 +35,7 @@ int main(int argc, char** argv)
   }
 
   // releasing the class object
-  pubAdvMultiArrRos2.~PubAdvancedTestRos2();  
+  pubAdvMultiArrRos2.~PubAdvTestRos2();  
 
   return 0;
 }  // end main()

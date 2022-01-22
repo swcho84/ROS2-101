@@ -10,6 +10,7 @@
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/multi_array_dimension.hpp>
 #include <std_msgs/msg/float64_multi_array.hpp>
+#include <std_msgs/msg/float64.hpp>
 
 using namespace std;
 using namespace rclcpp;
@@ -21,6 +22,7 @@ public:
   ~SubAdvancedTestRos2();
 
 private:
-  Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subF64Mt_;
+  Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subF64MtArr_;
+  Publisher<std_msgs::msg::Float64>::SharedPtr pubF64_;
   void CbF64Mt(const std_msgs::msg::Float64MultiArray::SharedPtr msg);
 };

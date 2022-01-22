@@ -17,11 +17,11 @@
 using namespace std;
 using namespace rclcpp;
 
-class PubAdvancedTestRos2 : public Node
+class PubAdvTestRos2 : public Node
 {
 public:
-  PubAdvancedTestRos2(string strNodeNm);
-  ~PubAdvancedTestRos2();
+  PubAdvTestRos2(string strNodeNm);
+  ~PubAdvTestRos2();
 
   void MainLoop();
 

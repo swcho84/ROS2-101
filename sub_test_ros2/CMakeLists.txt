@@ -14,6 +14,8 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(message_filters REQUIRED)
 
 include_directories(
   include
@@ -27,9 +29,13 @@ ament_target_dependencies(sub_test_basic_ros2_node rclcpp std_msgs)
 add_executable(sub_test_advanced_multiarray_ros2_node lib/sub_advanced_test_ros2_lib.cpp include/sub_advanced_test_ros2_lib.h src/main_advanced.cpp)
 ament_target_dependencies(sub_test_advanced_multiarray_ros2_node rclcpp std_msgs)
 
+add_executable(sub_test_synced_ros2_node lib/sub_synced_test_ros2_lib.cpp include/sub_synced_test_ros2_lib.h src/main_synced.cpp)
+ament_target_dependencies(sub_test_synced_ros2_node rclcpp std_msgs geometry_msgs message_filters)
+
 install(TARGETS
   sub_test_basic_ros2_node
   sub_test_advanced_multiarray_ros2_node
+  sub_test_synced_ros2_node
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
