@@ -14,7 +14,7 @@ int main(int argc, char** argv)
   init(argc, argv);
 
   // setting the node (nodeHandler)
-  auto node = Node::make_shared("hello_world_ros2");
+  auto node = Node::make_shared("hello_world_ros2_node");
 
   // setting the class object
   HelloWorldRos2 helloWorldRos2;
